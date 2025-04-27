@@ -1,0 +1,116 @@
+<!DOCTYPE html>  
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MEDICAL SHOP LOGIN PAGE</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #87CEEB, #ffffff);
+    }
+
+    .login-container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+        animation: fadeIn 1s ease-in;
+    }
+
+    h2 {
+        color: #2c3e50;
+    }
+
+    .input-group {
+        margin: 15px 0;
+        text-align: left;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #2c3e50;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        background: #3498db;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #2980b9;
+    }
+ .signup-link {
+        margin-top: 20px;
+        font-size: 15px;
+        color: #2c3e50;
+    }
+
+    .signup-link a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Medical Shop Login</h2>
+        <form action="kk" method="post">
+            <div class="input-group">
+                <label for="mail">Email:</label>
+                <input type="email" id="mail" name="mail" required>
+            </div>
+            <div class="input-group">
+                <label for="pw">Password:</label>
+                <input type="password" id="pw" name="pw" required>
+            </div>
+            <div class="input-group">
+                <label for="role">Select Role:</label>
+                <select id="role" name="medicine">
+                    <option value="1">OWNER</option>
+                    <option value="0">USER</option>
+                </select>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="signup-link">
+            New User? <a href="signup_page.html">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

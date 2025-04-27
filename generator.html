@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Payment Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      background: linear-gradient(120deg, #e3f2fd, #bbdefb);
+      animation: gradientAnimation 5s infinite alternate;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .payment-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+      animation: slideIn 1s ease-in-out forwards, pulse 2s infinite alternate;
+      border: 2px solid #007bff;
+    }
+
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-custom:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    input, select {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    input:focus, select:focus {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    table {
+      margin-top: 20px;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let medicineList = JSON.parse(sessionStorage.getItem("medicines")) || [];
+      let totalAmount = sessionStorage.getItem("totalamount") || 0;
+
+      console.log("💊 Medicine List:", medicineList);
+      console.log("💰 Total Amount:", totalAmount);
+
+      let tableBody = document.getElementById("medicine_table_body");
+      if (tableBody) {
+        medicineList.forEach(med => {
+          let row = document.createElement("tr");
+          row.innerHTML = `<td>${med.name}</td><td>${med.units}</td><td>₹${med.amount}</td>`;
+          tableBody.appendChild(row);
+        });
+      }
+
+      let totalAmountElement = document.getElementById("total_amount");
+      if (totalAmountElement) {
+        totalAmountElement.innerText = "₹" + totalAmount;
+      }
+
+      // Inject session data into hidden inputs before form submit
+      document.querySelector("form").addEventListener("submit", function () {
+        document.getElementById("medicinesData").value = JSON.stringify(medicineList);
+        document.getElementById("totalAmountData").value = totalAmount;
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="payment-container">
+      <h3 class="text-center mb-4">🏥 Medical Payment Form</h3>
+
+      <form action="generatePdf" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">👤 Enter Your Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required/>
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label">📍 Enter Your Address</label>
+          <input type="text" class="form-control" id="address" name="address" placeholder="123 Street, City" required/>
+        </div>
+
+        <div class="mb-3">
+          <label for="paymentMethod" class="form-label">💳 Select Payment Method</label>
+          <select class="form-select" id="paymentMethod" name="paymentMethod" required>
+            <option value="">Choose...</option>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+        </div>
+
+        <!-- Hidden inputs for sending JS data to server -->
+        <input type="hidden" id="medicinesData" name="medicinesData"/>
+        <input type="hidden" id="totalAmountData" name="totalAmountData"/>
+
+        <button type="submit" class="btn btn-custom w-100">🧾 Generate PDF</button>
+      </form>
+
+      <div class="mt-4">
+        <h5>📝 Medicines Purchased:</h5>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Units</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody id="medicine_table_body">
+            <!-- Filled by JS -->
+          </tbody>
+        </table>
+        <p class="fw-bold text-end">Total: <span id="total_amount"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

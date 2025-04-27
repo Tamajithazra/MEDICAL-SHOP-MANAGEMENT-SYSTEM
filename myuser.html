@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Shop Dashboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Font Awesome for Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background:linear-gradient(-45deg, #74ebd5, #ACB6E5, #FF9A8B, #ff758c);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+ @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .navbar {
+        background: #2C3E50;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar h2 {
+        margin: 0;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links li {
+        display: inline;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #1abc9c;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin-top: 100px;
+        text-align: center;
+    }
+
+    .header {
+        background: #1abc9c;
+        padding: 20px;
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card i {
+        font-size: 50px;
+        margin-bottom: 10px;
+        color: #1abc9c;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    .card a{
+    	color : black;
+    	text-decoration: none;
+    	font-weight: bold;
+    	transition : color 0.4s;
+    }
+</style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2>MEDICAL SHOP</h2>
+        <ul class="nav-links">
+            <li><a href="myuser.html">Dashboard</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="medicines_orders.jsp">Buy</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="index.html">LOG-OUT</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h2>WELCOME TO YOUR DASHBOARD</h2>
+        </div>
+        <div class="content">
+            <div class="card">
+                <i class="fas fa-box"></i>
+                <h3>YOUR ORDERS</h3>
+                
+            </div>
+            <div class="card">
+                <i class="fas fa-capsules"></i>
+                <h3><a href="available_medicine.jsp">AVAILABLE MEDICINES</a></h3>
+                
+            </div>
+            <div class="card">
+                <i class="fas fa-user"></i>
+                <h3>TOTAL CUSTOMERS</h3>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

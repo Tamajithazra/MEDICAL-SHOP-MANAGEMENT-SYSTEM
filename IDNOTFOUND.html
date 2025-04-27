@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ID Not Found</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #e74c3c, #c0392b);
+        color: white;
+        animation: fadeIn 1s ease-in;
+    }
+    .container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    a {
+        display: inline-block;
+        padding: 10px 15px;
+        background: #2c3e50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+    a:hover {
+        background: #1a252f;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>ID NOT FOUND</h1>
+        <a href="index.html">GO BACK TO LOGIN PAGE</a>
+    </div>
+</body>
+</html>
