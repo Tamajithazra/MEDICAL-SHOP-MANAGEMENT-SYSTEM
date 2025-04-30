@@ -28,3 +28,15 @@ Database CRUD operations (Create, Read, Update, Delete)
 User-friendly frontend interface
 
 Server-side validations and business logic
+
+📁 Project Structure
+/src - Java source files (servlets, utility classes)
+
+/WebContent - JSP files, static content (HTML/CSS/JS)
+
+/WEB-INF - Configuration files (web.xml)
+
+/lib - External libraries (MySQL Connector/J)
+
+🤝 Contributions
+Contributions are welcome! Feel free to fork this repo and submit a pull request.
